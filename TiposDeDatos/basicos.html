@@ -8,7 +8,10 @@
 <body>
 
     <h1>Fundamentos JavaScript</h1>
+
     <script>
+
+        // ************************* VAR - LET *************************
 
         var hola = "Hola mundo";//Variable de ámbito global.
         console.log(hola);
@@ -36,7 +39,61 @@
         }
 
         console.log("Variable música después del bloque", musica2);
-        
+
+        // ************************* CONSTANTES *************************
+
+        //Si o si hay que darles un valor al declararlas.
+        //Una constante no funciona igual en valores primitivos y valores compuestos.
+        const PI = 3.14;
+        console.log(PI);
+
+        // ************************* OBJETOS *************************
+
+        const unObjeto = {
+            nombre: "Nicolas",
+            edad: 25
+        };
+        console.log(unObjeto);
+        unObjeto.correo = "nicoantinao1998@gmail.com";
+        //Asi le puedo agregar una propiedad al objeto.
+        console.log(unObjeto);
+
+        // ************************* ARREGLOS *************************
+
+        const colores = ["blanco", "azul", "verde"];
+        console.log(colores);
+        colores.push("rojo");
+        console.log(colores);
+        /* Todo esto de ver objetos y arreglos es para ver que si uso constantes en datos
+        compuestos se le puede agregar nuevas cosas. A diferencia si la constante fuera un
+        dato primitivo.
+        */
+
+        // ************************* CADENAS DE TEXTO (STRINGS) *************************
+        let nombre = "Nicolas";
+        let apellido = 'Antinao';
+        let saludo = new String("Hola mundo");
+        let lorem = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id vel veniam earum repellendus, at aspernatur temporibus nam incidunt animi iusto alias? Quod, accusantium iste modi minima adipisci deleniti quam reiciendis.";
+        console.log(nombre, apellido, saludo);
+        console.log(nombre.length,
+        apellido.length,
+        saludo.length,
+        nombre.toUpperCase(),
+        apellido.toLowerCase(),
+        lorem.includes("animi"),
+        lorem.trim(),//Esto quita los espacios en blanco.
+        lorem.split(" ")//Esto me lo pasa a un arreglo.
+        );
+
+        let unNombre = "Matias";
+        let unApellido = "Alvián";
+        //CONCATENACIÓN
+        let unSaludo = "Hola mi nombre es " + unNombre + " " + unApellido + ".";
+        console.log(unSaludo);
+        //INTERPOLACIÓN DE VARIABLES
+        //TEMPLATE STRING
+        let saludoTemplate = `Hola mi nombre es ${unNombre} ${unApellido}.`;
+        console.log(saludoTemplate);
 
     </script>
 
