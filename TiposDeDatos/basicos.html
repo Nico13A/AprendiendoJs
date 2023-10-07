@@ -95,6 +95,188 @@
         let saludoTemplate = `Hola mi nombre es ${unNombre} ${unApellido}.`;
         console.log(saludoTemplate);
 
+        // ************************* NÚMEROS *************************
+        let a = 2;
+        let b = new Number(1);
+        let c = 7.19;
+
+        console.log(a, b);
+        console.log(c.toFixed(1));
+        /*
+        toFixed me dice cuantos numeros decimales va a tener un valor numerico.
+        */
+        console.log(parseInt(c));
+        console.log(parseFloat(c));
+        //ParseInt y float son metodos del constructor Number.
+        //Number podemos agregarlo o no.
+        //Ejemplo: console.log(Number.parseFloat(c));
+
+        // ************************* BOOLEANOS *************************
+        let verdadero = true;
+        let falso = false;
+        let v = Boolean(true);
+        let f = Boolean(false);
+        console.log(verdadero, falso);
+        console.log(typeof verdadero, typeof falso);
+        console.log(Boolean(0));//falso
+        console.log(Boolean(-7));//verdadero
+        console.log(Boolean(""));//falso
+        console.log(Boolean(" "));//verdadero
+
+        // ************************* NULL-UNDEFINED-NAN *************************
+        /*
+        Tanto null y undefined van a representar un valor ausente, es decir, 
+        una variable que no tiene valor.
+        */
+
+        /*
+        Undefined es un valor asignado por JS cuando detecta que una variable no 
+        tiene valor.
+        */
+        let indefinida;
+        console.log(indefinida);
+
+        /*
+        Null, la variable significa que esta vacia pero ha sido el programador el cual
+        le ha asignado ese valor especial de null.
+        */
+        let nulo = null;
+        console.log(nulo);
+
+        /*
+        NaN - Not a number.
+        */
+        let noEsUnNumero = "hola" * 3.7;
+        console.log(noEsUnNumero);
+
+        // ************************* FUNCIONES *************************
+
+        /*
+        Una función es un bloque de código, autocontenido, que se puede definir una vez y 
+        ejecutar en cualquier momento. 
+        
+        Opcionalmente, una función puede aceptar parámetros y devolver un valor.
+        
+        Las funciones en JavaScript son objetos, un tipo especial de objetos:
+            Se dice que las funciones son ciudadanos de primera clase porque 
+            pueden asignarse a un valor, y pueden pasarse como argumentos y 
+            usarse como un valor de retorno.
+        */
+
+        //Declaración de una función
+        function estoEsUnaFuncion() {
+            console.log("Uno");
+            console.log("Dos");
+            console.log("Tres");
+        }
+        //Invocación de funciones
+        estoEsUnaFuncion();
+
+        function funcionQueDevuelveUnValor() {
+            return "La función ha retornado una cadena de texto.";
+        }
+
+        let valorDeFuncion = funcionQueDevuelveUnValor();
+        console.log(valorDeFuncion);
+
+        function saludar(nombre = "Desconocido", edad = 0) {
+            console.log(`Hola mi nombre es ${nombre} y tengo ${edad} años.`);
+        }
+        saludar("Romero", 36);
+        saludar();
+
+        //Funciones declaradas VS Funciones expresadas
+        funcionDeclarada();
+        function funcionDeclarada() {
+            console.log("Esto es un función declarada, puede invocarse en cualquier " +
+            "parte de nuestro código, incluso antes de que la función sea declarada");
+        }
+        funcionDeclarada();
+
+        //Función anónima
+        //funcionExpresada();
+        const funcionExpresada = function () {
+            console.log("Esto es una función expresada, es decir, una función que se le " +
+            "ha asignado como valor a una variable, si invocamos esta función antes de su " +
+            "definición JS nos dirá 'Cannot access 'funcionExpresada' before initialization'");
+        }
+        funcionExpresada();
+
+        // ************************* ARRAYS *************************
+        const unArreglo = [];
+        const otroArreglo = [1, true, "Hola", ["A", "B", "C"]];
+        console.log(unArreglo);
+        console.log(otroArreglo);
+        console.log(otroArreglo.length);
+        console.log(otroArreglo[2]);
+        console.log(otroArreglo[3][2]);
+
+        //Otra forma de crear un arreglo.
+        const arreglo = Array.of("X", "Y", "Z", 9, 8, 7);
+        console.log(arreglo);
+
+        //De esta forma cree un array de 100 posiciones con puros falsos.
+        const unArray = Array(100).fill(false);
+        console.log(unArray);
+
+        /*
+        Forma antigua de crear un arreglo.
+        const unArreglo = new Array(1, 2, 3, true, false);
+        console.log(unArreglo);
+        */
+
+        const colors = ["Rojo", "Verde", "Azul"];
+        console.log(colors);
+
+        colors.push("Negro");//Agrega un elemento al final.
+        console.log(colors);
+
+        colors.pop();//Elimina un elemento al final.
+        console.log(colors);
+
+        colors.forEach(function (elemento, indice){
+            console.log(`<li id="${indice}">${elemento}</li>`);
+        })
+
+        // ************************* OBJETOS *************************
+        const objeto = {};
+        console.log(objeto);
+
+        const nico = {
+            nombre: "Nicolas",
+            apellido: "Antinao",
+            edad: 25,
+            pasatiempos: ["Correr", "Nadar", "Jugar al fútbol"],
+            soltero: true,
+            contacto: {
+                email: "nicoantinao1998@gmail.com",
+                twitter: "@nicoA",
+                movil: "2994522845"
+            },
+            saludar: function() {
+                console.log("Hola");
+            },
+            decirMiNombre: function() {
+                console.log(`Hola me llamo ${this.nombre} ${this.apellido}`);
+                //this hace referencia al mismo objeto.
+            }
+        }
+
+        //nombre, apellido, etc son atributos.
+        //saludar es un método.
+        console.log(nico);
+        console.log(nico["nombre"]);
+        console.log(nico.nombre);
+        console.log(nico.pasatiempos[1]);
+        console.log(nico.contacto.email);
+        nico.saludar();
+        nico.decirMiNombre();
+
+        //Esto me permite listar todas las llaves del objeto.
+        console.log(Object.keys(nico));
+        console.log(Object.values(nico));
+        console.log(nico.hasOwnProperty("nombre"));
+
     </script>
 
 </body>
