@@ -126,4 +126,11 @@ es entonces cuando la respuesta se encolará para ser procesada.
     console.log("Fin");
 })();
 
+/* ---------------------- MECANISMOS ASÍNCRONOS EN JS ------------------------
 
+Para controlar la asincronía, JavaScript cuenta con algunos mecanismos:
+    Callbacks.
+    Promises.
+    Async / Await.
+
+*/
